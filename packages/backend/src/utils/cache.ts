@@ -135,7 +135,7 @@ export const cache = {
       const pipeline = client.pipeline();
       let keysBatch: string[] = [];
 
-      stream.on('data', (keys: string[]) => {
+      (stream as any).on('data', (keys: string[]) => {
         if (keys.length > 0) {
           keysBatch = keysBatch.concat(keys);
           if (keysBatch.length >= 100) {
@@ -147,14 +147,14 @@ export const cache = {
       });
 
       await new Promise<void>((resolve, reject) => {
-        stream.on('end', async () => {
+        (stream as any).on('end', async () => {
           if (keysBatch.length > 0) {
             keysBatch.forEach((k) => pipeline.del(k));
             await pipeline.exec();
           }
           resolve();
         });
-        stream.on('error', reject);
+        (stream as any).on('error', reject);
       });
     } catch (error) {
       logger.error('Cache delPattern error', { pattern, error: (error as Error).message });

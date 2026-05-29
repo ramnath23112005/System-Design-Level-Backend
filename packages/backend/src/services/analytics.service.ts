@@ -473,7 +473,7 @@ export class AnalyticsService {
       return csvRows.join('\n');
     }
 
-    return data;
+    return data as unknown as Record<string, unknown>[];
   }
 
   private static parsePeriod(period: string): number {
