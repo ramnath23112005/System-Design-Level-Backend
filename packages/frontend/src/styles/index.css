@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-secondary-200 dark:border-secondary-700;
+  }
+  body {
+    @apply bg-secondary-50 text-secondary-900 dark:bg-secondary-950 dark:text-secondary-100;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg dark:bg-secondary-900/80;
+  }
+  .card {
+    @apply bg-white dark:bg-secondary-800 rounded-xl border border-secondary-200 dark:border-secondary-700 shadow-sm;
+  }
+  .card-hover {
+    @apply card transition-all duration-200 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-600;
+  }
+  .input-field {
+    @apply w-full px-4 py-2.5 bg-white dark:bg-secondary-900 border border-secondary-300 dark:border-secondary-600 rounded-lg text-secondary-900 dark:text-secondary-100 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2.5 bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-medium rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2.5 bg-secondary-100 dark:bg-secondary-700 hover:bg-secondary-200 dark:hover:bg-secondary-600 text-secondary-700 dark:text-secondary-200 font-medium rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center px-4 py-2.5 bg-danger-600 hover:bg-danger-700 active:bg-danger-800 text-white font-medium rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2.5 text-secondary-600 dark:text-secondary-400 hover:bg-secondary-100 dark:hover:bg-secondary-800 font-medium rounded-lg transition-colors duration-200;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-accent-500;
+  }
+}
+
+.leaflet-container {
+  @apply rounded-xl;
+  height: 100%;
+  width: 100%;
+}
+
+.recharts-responsive-container {
+  @apply !important;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  @apply stroke-secondary-200 dark:stroke-secondary-700;
+}
+
+.recharts-text {
+  @apply fill-secondary-600 dark:fill-secondary-400 text-xs;
+}
+
+.recharts-tooltip-wrapper {
+  @apply !rounded-xl !border-0 shadow-lg;
+}
+
+.recharts-default-tooltip {
+  @apply !rounded-xl !border-0 !bg-white/95 dark:!bg-secondary-800/95 !backdrop-blur-sm !p-3 !shadow-lg;
+}
+
+.recharts-tooltip-label {
+  @apply !text-secondary-600 dark:!text-secondary-400 !text-xs !mb-1;
+}
+
+.recharts-tooltip-item {
+  @apply !text-secondary-900 dark:!text-secondary-100 !text-sm !py-0.5;
+}
+
+.recharts-legend-item-text {
+  @apply !text-secondary-600 dark:!text-secondary-400 !text-xs;
+}
+
+@keyframes shimer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  @apply bg-gradient-to-r from-secondary-200 via-secondary-100 to-secondary-200 dark:from-secondary-700 dark:via-secondary-600 dark:to-secondary-700 bg-[length:200%_100%] animate-[shimer_1.5s_infinite] rounded;
+}

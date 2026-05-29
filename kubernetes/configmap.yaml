@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: url-shortener-config
+  namespace: url-shortener
+  labels:
+    app: url-shortener
+    environment: production
+data:
+  NODE_ENV: "production"
+  PORT: "3000"
+  API_PREFIX: "/api/v1"
+  CORS_ORIGIN: "https://app.shorturl.com"
+  LOG_LEVEL: "info"
+  DB_HOST: "postgres"
+  DB_PORT: "5432"
+  DB_NAME: "url_shortener"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  JWT_ISSUER: "url-shortener"
+  AWS_REGION: "us-east-1"
+  AWS_S3_BUCKET: "url-shortener-assets"
+  SMTP_HOST: "smtp.mailtrap.io"
+  SMTP_PORT: "587"
+  EMAIL_FROM: "noreply@urlshortener.com"
+  RATE_LIMIT_WINDOW_MS: "60000"
+  RATE_LIMIT_MAX_REQUESTS: "100"
+  JWT_EXPIRES_IN: "15m"
+  JWT_REFRESH_EXPIRES_IN: "7d"

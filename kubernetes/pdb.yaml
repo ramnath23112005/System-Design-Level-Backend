@@ -1,0 +1,15 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: url-shortener-backend-pdb
+  namespace: url-shortener
+  labels:
+    app: url-shortener
+    component: backend
+    environment: production
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: url-shortener
+      component: backend
