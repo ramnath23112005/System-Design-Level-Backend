@@ -11,7 +11,9 @@
     "test:coverage": "jest --coverage --passWithNoTests",
     "lint": "eslint src --ext .ts",
     "migrate": "ts-node src/database/migrate.ts",
+    "migrate:prod": "node dist/database/migrate.js",
     "seed": "ts-node src/database/seed.ts",
+    "seed:prod": "node dist/database/seed.js",
     "clean": "rm -rf dist"
   },
   "dependencies": {
