@@ -38,9 +38,12 @@
     "dotenv": "^16.3.1",
     "axios": "^1.6.2",
     "uuid": "^9.0.0",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "@aws-sdk/client-s3": "^3.470.0",
+    "@aws-sdk/s3-request-presigner": "^3.470.0"
   },
   "devDependencies": {
+    "@types/node": "^20.10.0",
     "@types/express": "^4.17.21",
     "@types/cors": "^2.8.17",
     "@types/morgan": "^1.9.9",
